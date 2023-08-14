@@ -1,0 +1,27 @@
+{
+    "Login": {
+        "title": "Iniciar Sesión",
+        "Hello": "¡Hola! Inicia sesión con tu correo electrónico.",
+        "Welcome": "Bienvenido",
+        "Email": "Direccion email:",
+        "Password": "Contraseña:",
+        "Remember": "Recordar",
+        "Forgot-password": "¿Has olvidado tu contraseña?",
+        "Start": "Iniciar seccion"
+    },
+    "register": {
+        "title": "Registro de usuario"
+    },
+    "consulta": {
+        "title": "Empleados"
+    },
+    "modificacion": {
+        "title": "Operaciones de usuario"
+    },
+    "roles": {
+        "consulta": "Consulta de roles"
+    },
+    "agenda": {
+        "calendario": "Reservaciones"
+    }
+}

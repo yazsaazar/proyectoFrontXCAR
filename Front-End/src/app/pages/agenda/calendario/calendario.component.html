@@ -1,0 +1,12 @@
+<nb-card>
+    <nb-card-header>
+      <p>Calendario!<code>{{ "agenda.calendario" | translate }}</code></p>
+    </nb-card-header>
+    <nb-card-body>
+      <nb-calendar-month-picker
+        [(month)]="month"
+        [cellComponent]="monthCellComponent"
+      ></nb-calendar-month-picker>
+    </nb-card-body>
+  </nb-card>
+  

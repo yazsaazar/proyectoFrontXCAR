@@ -1,0 +1,29 @@
+
+<nb-card>
+    <nb-card-body>
+      <div class="text-center">
+        <p style="text-align:center; font-size:40px;">Gestión de Cámaras</p>
+      </div>
+      <div>
+        <header>
+          <label class="search-label" for="search">Buscar:    </label>
+          <input
+            nbInput
+            id="search"
+            class="search-input size-medium status-basic shape-rectangle nb-transition"
+          />
+          
+        </header>
+        <br>
+        <div>
+          <ng2-smart-table
+            [settings]="settings"
+            [source]="source"
+            (deleteConfirm)="onDeleteConfirm($event)"
+          >
+          </ng2-smart-table>
+        </div>
+      </div>
+    </nb-card-body>
+  </nb-card>
+  

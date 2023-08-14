@@ -1,0 +1,12 @@
+{
+    "Login": {
+        "title": "Login new",
+        "Hello": "¡Hola! Inicia sesión con tu correo electrónico. SennsFarma",
+        "Welcome": "Bienvenido",
+        "Email": "Direccion email:",
+        "Password": "Contraseña:",
+        "Remember": "Recordar",
+        "Forgot-password": "¿Has olvidado tu contraseña?",
+        "Start": "Iniciar seccion"
+    }
+}

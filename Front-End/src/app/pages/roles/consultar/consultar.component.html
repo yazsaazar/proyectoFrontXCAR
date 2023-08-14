@@ -1,0 +1,13 @@
+<div>
+    <h1 id="title" class="col-md-9 offset-md-3">{{ "roles.consulta" | translate }}</h1>
+    <div>
+      <header>
+        <label class="search-label" for="search">Buscar:</label>
+        <input nbInput id="search" class="search-input size-medium status-basic shape-rectangle nb-transition">
+      </header>
+      <div>
+        <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
+        </ng2-smart-table>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,89 @@
+
+
+<div class="container mt-4">
+
+  
+  
+  <h1>Reportes</h1>
+  <button class="btn btn-primary" (click)="mostrarModalAgregar()">Agregar Reporte</button>
+
+  <div class="form-control-group">
+    <table class="table col-12 table-bordered w-75 mx-auto">
+      <thead class="table-info">
+        <tr>
+          <th>ID</th>
+          <th>Propietario</th>
+          <th>Modelo</th>
+          <th>Marca</th>
+          <th>Color</th>
+          <th>Placa</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let reporte of reportes">
+          <td>{{ reporte.id }}</td>
+          <td>{{ reporte.propietario }}</td>
+          <td>{{ reporte.modelo }}</td>
+          <td>{{ reporte.marca }}</td>
+          <td>{{ reporte.color }}</td>
+          <td>{{ reporte.placa }}</td>
+          <td>
+            <button class="btn btn-warning" (click)="mostrarModalEditar(reporte)">Editar</button>
+            <button class="btn btn-danger" (click)="eliminarReporte(reporte.id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+
+<!-- Modal para agregar/editar -->
+<div *ngIf="mostrarModal" class="modal">
+  <div class="modal-content">
+    <span class="close" (click)="cerrarModal()">&times;</span>
+    <h2>{{ modalTitulo }}</h2>
+    <form *ngIf="modalEditar" (ngSubmit)="actualizarReporte()">
+      <!-- Campos del formulario -->
+      <input type="hidden" id="id" name="id" [(ngModel)]="reporteActual.propietario" required><br>
+      <input type="text" id="propietario" name="propietario" [(ngModel)]="reporteActual.propietario" required  (keypress)="validarTexto($event)"
+      (ngModelChange)="reporteActual.propietario = formatearAMayusculas($event)" maxlength="25"><br>
+
+  <label for="modelo">Modelo:</label>
+  <input type="text" id="modelo" name="modelo" [(ngModel)]="reporteActual.modelo" required (ngModelChange)="reporteActual.modelo = formatearAMayusculas($event)" maxlength="20"><br>
+
+  <label for="marca">Marca:</label>
+  <input type="text" id="marca" name="marca" [(ngModel)]="reporteActual.marca" required (ngModelChange)="reporteActual.marca = formatearAMayusculas($event)" maxlength="20"><br>
+
+  <label for="color">Color:</label>
+  <input type="text" id="color" name="color" [(ngModel)]="reporteActual.color" required (ngModelChange)="reporteActual.color = formatearAMayusculas($event)" (keypress)="validarTexto($event)" maxlength="15"><br>
+
+  <label for="placa">Placa:</label>
+  <input type="text" id="placa" name="placa" [(ngModel)]="reporteActual.placa" required (ngModelChange)="reporteActual.placa = formatearAMayusculas($event)" maxlength="15"><br><br>
+
+  <button type="submit" class="float-right">Editar Reporte</button>
+    </form>
+    <form *ngIf="!modalEditar" (ngSubmit)="agregarReporte()">
+      <!-- Campos del formulario -->
+      <label for="propietario">Propietario:</label>
+  <input type="text" id="propietario" name="propietario" [(ngModel)]="reporteActual.propietario" required (keypress)="validarTexto($event)"
+  (ngModelChange)="reporteActual.propietario = formatearAMayusculas($event)" maxlength="25"><br>
+
+  <label for="modelo">Modelo:</label>
+  <input type="text" id="modelo" name="modelo" [(ngModel)]="reporteActual.modelo" required (ngModelChange)="reporteActual.modelo = formatearAMayusculas($event)" maxlength="20"><br>
+
+  <label for="marca">Marca:</label>
+  <input type="text" id="marca" name="marca" [(ngModel)]="reporteActual.marca" required (ngModelChange)="reporteActual.marca = formatearAMayusculas($event)" maxlength="20"><br>
+
+  <label for="color">Color:</label>
+  <input type="text" id="color" name="color" [(ngModel)]="reporteActual.color" required (ngModelChange)="reporteActual.color = formatearAMayusculas($event)" (keypress)="validarTexto($event)" maxlength="15"><br>
+
+  <label for="placa">Placa:</label>
+  <input type="text" id="placa" name="placa" [(ngModel)]="reporteActual.placa" required (ngModelChange)="reporteActual.placa = formatearAMayusculas($event)" maxlength="15"><br><br>
+
+  <button type="submit" class="float-right">Registrar Reporte</button>
+    </form>
+  </div>
+</div>

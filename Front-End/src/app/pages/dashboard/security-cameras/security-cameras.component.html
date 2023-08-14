@@ -1,0 +1,64 @@
+<nb-card size="giant">
+
+  <nb-card-header>
+    Camaras de Seguridad
+
+    <button class="single-view-button"
+            nbButton
+            size="small"
+            [appearance]="isSingleView ? 'filled' : 'outline'"
+            (click)="isSingleView = true">
+      <i class="nb-square"></i>
+    </button>
+    <button class="grid-view-button"
+            nbButton
+            size="small"
+            [appearance]="isSingleView ? 'outline' : 'filled'"
+            (click)="isSingleView = false">
+      <nb-icon icon="grid" pack="eva"></nb-icon>
+    </button>
+  </nb-card-header>
+
+  <div class="grid-container">
+    <img id="img-ipcam" src="http://192.168.3.85:8080/video" crossorigin="anonymus">
+
+    <div class="single-view" *ngIf="isSingleView">
+              
+
+      <div class="camera" [style.background-image]="'url(' + selectedCamera.source + ')'">
+        <span class="camera-name">{{ selectedCamera.title }}</span>
+      </div>
+    </div>
+
+    <div class="grid-view" *ngIf="!isSingleView">
+      <div class="camera"
+           *ngFor="let camera of cameras"
+           [style.background-image]="'url(' + camera.source + ')'"
+           (click)="selectCamera(camera)">
+        <span class="camera-name">{{ camera.title }}</span>
+      </div>
+    </div>
+
+  </div>
+
+  <nb-card-footer>
+    <nb-actions [size]="actionSize" fullWidth>
+      <nb-action>
+        <nb-icon icon="play-circle-outline" pack="eva"></nb-icon>
+        Reproducir
+      </nb-action>
+      <nb-action>
+        <nb-icon icon="volume-up-outline" pack="eva"></nb-icon>
+        Silenciar
+      </nb-action>
+      <nb-action>
+        <nb-icon icon="camera-outline" pack="eva"></nb-icon>
+        Capturar
+      </nb-action>
+      <nb-action>
+        <nb-icon icon="maximize-outline" pack="eva"></nb-icon>
+        Zoom
+      </nb-action>
+    </nb-actions>
+  </nb-card-footer>
+</nb-card>
